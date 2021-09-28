@@ -1,9 +1,7 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Container, Heading, Button, Flex, NavLink } from 'theme-ui'
 import { Link } from 'gatsby'
-import netlifyIdentity from 'netlify-identity-widget'
-
-netlifyIdentity.init({})
+import { IdentityContext } from '../../identity-context'
 
 const Home = () => {
     const { user, identity: netlifyIdentity } = useContext(IdentityContext)

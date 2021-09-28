@@ -1,0 +1,12 @@
+{
+  "name": "eggheadtodo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Goggwell/jamtodo.git",
+  "author": "Samuel Yusuf <zulkarnaensamuel1@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}

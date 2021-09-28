@@ -1,15 +1,20 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { Container, Heading, Button, Flex, NavLink } from 'theme-ui'
-import { Link } from 'gatsby'
-import netlifyIdentity from 'netlify-identity-widget'
+import React, { useContext } from 'react'
+import { Router, Link } from "@reach/router"
+import { Flex, Heading, Button, NavLink } from 'theme-ui'
+import netlifyIdentity from "netlify-identity-widget"
+import { IdentityContext } from '../../identity-context'
 
-netlifyIdentity.init({})
+let Dash = () => {
+    const { user } = useContext(IdentityContext)
 
-const Home = () => {
-    const { user, identity: netlifyIdentity } = useContext(IdentityContext)
+    return <div>Dash hasUser: {user && user.user_metadata.full_name}</div>
+}
+
+let DashLoggedOut = props => {
+    const { identity: netlifyIdentity } = useContext(IdentityContext)
 
     return (
-        <Container>
+        <Flex>
             <Flex as='nav'>
                 <NavLink as={Link} to='/' p={2}>
                     Home
@@ -23,6 +28,7 @@ const Home = () => {
                     </NavLink>
                 )}
             </Flex>
+        
             <Flex sx={{ flexDirection: "column", padding: 3}}>
                 <Heading as="h1">Start Your Day The Right Way</Heading>
                 <Button 
@@ -34,8 +40,16 @@ const Home = () => {
                     Log In
                 </Button>
             </Flex>
-        </Container>
+        </Flex>
     )
 }
 
-export default Home
+const app = () => {
+    return (
+        <Router>
+            <Dash path="/app" />
+        </Router>
+    )
+}
+
+export default app

@@ -9282,13 +9282,19 @@ const {
 } = __webpack_require__(/*! theme-ui */ "../../node_modules/theme-ui/dist/theme-ui.esm.js");
 
 const {
-  polaris
+  deep
 } = __webpack_require__(/*! @theme-ui/presets */ "../../node_modules/@theme-ui/presets/dist/theme-ui-presets.esm.js");
+
+const tokens = { ...deep,
+  sizes: {
+    container: 1024
+  }
+};
 
 module.exports = ({
   element
 }) => /*#__PURE__*/React.createElement(ThemeProvider, {
-  theme: polaris
+  theme: tokens
 }, element);
 
 /***/ }),

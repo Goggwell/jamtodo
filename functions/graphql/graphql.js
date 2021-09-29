@@ -92,7 +92,7 @@ const server = new ApolloServer({
   // If you'd like to have GraphQL Playground and introspection enabled in production,
   // the `playground` and `introspection` options must be set explicitly to `true`.
   playground: true,
-  introspection: true
+  introspection: true,
 });
 
 exports.handler = server.createHandler({
